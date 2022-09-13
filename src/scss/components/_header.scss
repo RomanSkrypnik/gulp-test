@@ -1,0 +1,19 @@
+.header {
+
+  &__button {
+    margin-top: -2px;
+  }
+
+  &__logo {
+    margin: 3px 0 0 6px;
+  }
+
+  &__burger {
+    margin-top: 5px;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 31.5px 50px;
+}

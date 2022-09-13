@@ -11,13 +11,13 @@ export const path = {
         js: `${buildFolder}/js/`,
         css: `${buildFolder}/css`,
         files: `${buildFolder}/files/`,
-        fonts: `${buildFolder}/fonts/`
+        fonts: `${buildFolder}/fonts/`,
+        images: `${buildFolder}/images/`
     },
     src: {
         html: `${srcFolder}/*.html`,
         js: `${srcFolder}/js/app.js`,
-        images: `${srcFolder}/img/**/*.{jpg, jpeg, png, gif, webp}`,
-        svg: `${srcFolder}/img/**/*.svg`,
+        images: `${srcFolder}/images/**/*.{jpg, jpeg, png, gif, webp, svg}`,
         scss: `${srcFolder}/scss/main.scss`,
         files: `${srcFolder}/files/**/*.*`,
     },

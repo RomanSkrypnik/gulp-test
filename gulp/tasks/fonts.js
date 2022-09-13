@@ -34,7 +34,7 @@ export const ttfToWoff = () => {
 };
 
 export const fontsStyle = () => {
-    const fontsFile = `${app.path.srcFolder}/scss/fonts.scss`;
+    const fontsFile = `${app.path.srcFolder}/scss/base/_fonts.scss`;
 
     fs.readdir(app.path.build.fonts, (err, fontsFiles) => {
         if (fontsFiles) {
@@ -45,40 +45,41 @@ export const fontsStyle = () => {
                     const fontFileName = fontsFiles[i].split('.')[0];
                     if (newFileOnly !== fontFileName) {
                         const fontName = fontFileName.split('-')[0] ? fontFileName.split('-')[0] : fontFileName;
-                        let fontWeight = fontFileName.split('-')[1] ? fontFileName.split('-')[1] : fontFileName;
-                        if (fontWeight.toLowerCase() === 'thin') {
+                        const fontType = fontFileName.split('-')[1] ? fontFileName.split('-')[1] : fontFileName;
+                        let fontWeight;
+                        if (fontType.toLowerCase() === 'thin') {
                             fontWeight = 100;
-                        } else if (fontWeight.toLowerCase() === 'extralight') {
+                        } else if (fontType.toLowerCase() === 'extralight') {
                             fontWeight = 200;
-                        } else if (fontWeight.toLowerCase() === 'light') {
+                        } else if (fontType.toLowerCase() === 'light') {
                             fontWeight = 300;
-                        } else if (fontWeight.toLowerCase() === 'medium') {
+                        } else if (fontType.toLowerCase() === 'medium') {
                             fontWeight = 500;
-                        } else if (fontWeight.toLowerCase() === 'semibold') {
+                        } else if (fontType.toLowerCase() === 'semibold') {
                             fontWeight = 600;
-                        } else if (fontWeight.toLowerCase() === 'bold') {
+                        } else if (fontType.toLowerCase() === 'bold') {
                             fontWeight = 700;
-                        } else if (fontWeight.toLowerCase() === 'extrabold' || fontWeight.toLowerCase() === 'heavy') {
+                        } else if (fontType.toLowerCase() === 'extrabold' || fontType.toLowerCase() === 'heavy') {
                             fontWeight = 800;
-                        } else if (fontWeight.toLowerCase() === 'black') {
+                        } else if (fontType.toLowerCase() === 'black') {
                             fontWeight = 900;
                         } else {
                             fontWeight = 400;
                         }
 
-                        fs.appendFile(fontFile,
+                        fs.appendFile(fontsFile,
                             `@font-face {
-                                font-family: ${fontName};
+                                font-family: ${fontName} ${fontType};
                                 font-display: swap;
-                                src: url('../fonts/${fontFileName}.woff2') format('woff2'), 
+                                src: url('../fonts/${fontFileName}.woff2') format('woff2');
                                 font-weight: ${fontWeight};
-                                font-style: normal
+                                font-style: normal;
                             }\r\n`, cb);
                         newFileOnly = fontFileName;
                     }
                 }
             } else {
-                console.log('File scss/fonts.scss already exists');
+                console.log('File scss/_fonts.scss already exists');
             }
         }
     });
