@@ -1,8 +1,6 @@
 import gulp from 'gulp';
 import { path } from './gulp/config/path.js';
-
-import { copy } from './gulp/tasks/copy.js';
-import { reset } from './gulp/tasks/reset.js';
+import { reset, copy, html } from './gulp/tasks/index.js';
 
 global.app = {
     path,
@@ -11,8 +9,11 @@ global.app = {
 
 const watcher = () => {
     gulp.watch(path.watch.files, copy);
+    gulp.watch(path.watch.html, copy);
 };
 
-const dev = gulp.series(reset, copy, watcher);
+const mainTasks = gulp.parallel(copy, html);
+
+const dev = gulp.series(reset, mainTasks, watcher);
 
 gulp.task('default', dev);
