@@ -1,19 +1,21 @@
 import gulp from 'gulp';
-import { path } from './gulp/config/path.js';
-import { reset, copy, html } from './gulp/tasks/index.js';
+import { reset, copy, html, server, scss } from './gulp/tasks/index.js';
+import { path, plugins } from './gulp/config/index.js';
 
 global.app = {
     path,
     gulp,
+    plugins,
 };
 
 const watcher = () => {
     gulp.watch(path.watch.files, copy);
-    gulp.watch(path.watch.html, copy);
+    gulp.watch(path.watch.html, html);
+    gulp.watch(path.watch.scss, scss);
 };
 
-const mainTasks = gulp.parallel(copy, html);
+const mainTasks = gulp.parallel(copy, html, scss);
 
-const dev = gulp.series(reset, mainTasks, watcher);
+const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 
 gulp.task('default', dev);
