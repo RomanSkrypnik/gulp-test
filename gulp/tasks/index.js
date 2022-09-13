@@ -5,3 +5,4 @@ export * from './server.js';
 export * from './scss.js';
 export * from './js.js';
 export * from './images.js';
+export * from './fonts.js';

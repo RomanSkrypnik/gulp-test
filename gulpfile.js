@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import { reset, copy, html, server, scss, js, images } from './gulp/tasks/index.js';
+import { reset, copy, html, server, scss, js, images, fontsStyle, otfToTtf, ttfToWoff } from './gulp/tasks/index.js';
 import { path, plugins } from './gulp/config/index.js';
 
 global.app = {
@@ -16,7 +16,9 @@ const watcher = () => {
     gulp.watch(path.watch.images, images);
 };
 
-const mainTasks = gulp.parallel(copy, html, scss, js);
+const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+
+const mainTasks = gulp.parallel(fonts, copy, html, scss, js);
 
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 
