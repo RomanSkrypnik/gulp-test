@@ -1,4 +1,9 @@
 .button {
+
+  &._extended {
+    max-width: 207px;
+  }
+
   background-color: $purple;
   color: $white;
   border-radius: 25px;

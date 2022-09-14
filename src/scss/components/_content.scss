@@ -1,9 +1,10 @@
 .content {
 
   &__container {
-    max-width: 922px;
+    max-width: 952px;
     margin: 0 auto;
     padding: 0 15px;
+    transform: translateX(-22px);
   }
 
   &__title {
@@ -23,11 +24,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: 918px;
-    margin-top: 25px;
-  }
-
-  &__wrapper {
-    margin-left: -22px;
+    margin: 25px 0 90px 0;
   }
 
   padding: 36px 0 69px 0;
