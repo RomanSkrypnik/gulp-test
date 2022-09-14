@@ -1,7 +1,11 @@
 .button {
 
-  &._extended {
-    max-width: 207px;
+  &._dark {
+    background-color: $darkBlue;
+  }
+
+  &._purple {
+    background-color: $purple;
   }
 
   background-color: $purple;
