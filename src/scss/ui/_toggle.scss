@@ -5,18 +5,27 @@
       margin-right: 10px;
     }
 
-    &._active {
+    &-text {
+      text-transform: uppercase;
+      border-radius: 22px;
+      height: 44px;
+      padding: 13px 24px;
+      letter-spacing: 0.833333px;
+    }
+
+    cursor: pointer;
+    display: flex;
+    color: $darkBlue;
+  }
+
+  &__input {
+    &:checked + .toggle__button-text {
       color: $white;
       background-color: $purple;
       box-shadow: 0 6px 12px rgba(82, 67, 194, 0.16);
     }
 
-    letter-spacing: 0.833333px;
-    color: $darkBlue;
-    text-transform: uppercase;
-    border-radius: 22px;
-    height: 44px;
-    padding: 13px 24px;
+    appearance: none;
   }
 
   display: flex;

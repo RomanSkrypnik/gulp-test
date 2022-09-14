@@ -1,3 +1,1 @@
-import * as functions from './modules/index.js';
-
-functions.isWebp();
+const toggle = document.querySelector('#toggle');
