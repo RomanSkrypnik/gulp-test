@@ -11,7 +11,6 @@
     }
 
     &._popular {
-
       .card__button {
         max-width: 232px;
         align-self: center;
@@ -49,7 +48,6 @@
   }
 
   &__price {
-
     &-number {
       font-size: 36px;
       line-height: 46px;
@@ -82,13 +80,17 @@
         background-position: center;
         background-repeat: no-repeat;
         background-color: rgba(82, 67, 194, 0.15);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
         height: 20px;
         width: 20px;
         border-radius: 50%;
       }
 
-      display: flex;
-      text-indent: 10px;
+      position: relative;
+      padding-left: 30px;
     }
   }
 
@@ -104,4 +106,17 @@
   border-radius: 26px;
   transform: translateX(7px);
   padding: 0 45px 0 68px;
+}
+
+@media (max-width: 1199px) {
+  .card {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 991px) {
+  .card {
+    justify-content: space-between;
+    padding: 0 25px;
+  }
 }
