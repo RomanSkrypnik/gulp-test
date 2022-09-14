@@ -1,3 +1,7 @@
 @import 'base/base';
 @import './ui/ui';
 @import './components/components';
+
+body {
+  position: relative;
+}

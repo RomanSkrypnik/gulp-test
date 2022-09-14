@@ -1,23 +1,33 @@
 .content {
 
+  &::before {
+    content: '';
+    display: block;
+    background: linear-gradient(180deg, #F5F5FA 0%, #F2DAD5 44.15%, #A1ABD6 100%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
   &__container {
     max-width: 967px;
+    transform: translateX(-22px);
     margin: 0 auto;
     padding: 0 15px;
-    transform: translateX(-22px);
   }
 
   &__title {
     text-indent: 6px;
-    color: $darkBlue;
     margin-bottom: 25px;
   }
 
   &__row {
+
     &-text {
       font-size: 18px;
       line-height: 27px;
-      color: $grey;
       max-width: 584px;
     }
 
@@ -27,6 +37,6 @@
     max-width: 918px;
     margin: 25px 0 90px 9px;
   }
-  //background-color: red;
+
   padding: 36px 0 69px 0;
 }

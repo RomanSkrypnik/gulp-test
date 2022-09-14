@@ -12,8 +12,14 @@
     margin-top: 5px;
   }
 
+  &__button,
+  &__logo,
+  &__burger {
+    z-index: 1;
+  }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 31.5px 50px;
+  padding: 31.5px 51px;
 }
